@@ -14,14 +14,12 @@ from turtle import *
 
 from freegames import vector
 
-"""Agregar color
-bgcolor('lightblue')"""
 
 def line(start, end):
     "Draw line from start to end."
-    penup()
+    up()
     goto(start.x, start.y)
-    pendown()
+    down()
     goto(end.x, end.y)
 
 
@@ -41,18 +39,50 @@ def square(start, end):
 
 def circle(start, end):
     "Draw circle from start to end."
-    dot(start,end)
-    pass  # TODO
+    up()
+    goto(start.x, start.y)
+    down()
+
+    if(start.x - end.x > start.y - end.y or start.x - end.x > end.y - start.y  or end.x - start.x > end.y - start.y or end.x - start.x > start.y - end.y):
+        if(start.x > end.x):
+            dot(start.x - end.x)
+        else:
+            dot(end.x - start.x)
+    elif(start.x - end.x < start.y - end.y or start.x - end.x < end.y - start.y  or end.x - start.x < end.y - start.y or end.x - start.x < start.y - end.y):
+        if(start.y > end.y):
+            dot(start.y - end.y)
+        else:
+            dot(end.y - start.y)
+    pass #TODO 
 
 
 def rectangle(start, end):
     "Draw rectangle from start to end."
-    pass  # TODO
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+    for count in range(4):
+        if(count == 0 or count == 2):
+            forward(end.x - start.x)
+        else:
+            forward((end.x - start.x) - (end.x - start.x + 50))
+        left(90)
+    end_fill()
 
 
 def triangle(start, end):
     "Draw triangle from start to end."
-    pass  # TODO
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+
+    for count in range(3):
+        forward(end.x - start.x)
+        left(120)
+
+    end_fill()
 
 
 def tap(x, y):
@@ -84,7 +114,7 @@ onkey(lambda: color('green'), 'G')
 onkey(lambda: color('blue'), 'B')
 onkey(lambda: color('red'), 'R')
 
-''' Nuevos colores'''
+# Nuevos colores
 onkey(lambda: color('lightblue'), 'L')
 onkey(lambda: color('purple'), 'P')
 
