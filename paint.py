@@ -14,15 +14,14 @@ from turtle import *
 
 from freegames import vector
 
-"""Agregar color"""
-bgcolor('lightblue')
+"""Agregar color
+bgcolor('lightblue')"""
 
 def line(start, end):
     "Draw line from start to end."
-    chape('line')
-    turtle.up(50)
+    penup()
     goto(start.x, start.y)
-    down(60)
+    pendown()
     goto(end.x, end.y)
 
 
@@ -42,6 +41,7 @@ def square(start, end):
 
 def circle(start, end):
     "Draw circle from start to end."
+    dot(start,end)
     pass  # TODO
 
 
@@ -83,6 +83,11 @@ onkey(lambda: color('white'), 'W')
 onkey(lambda: color('green'), 'G')
 onkey(lambda: color('blue'), 'B')
 onkey(lambda: color('red'), 'R')
+
+''' Nuevos colores'''
+onkey(lambda: color('lightblue'), 'L')
+onkey(lambda: color('purple'), 'P')
+
 onkey(lambda: store('shape', line), 'l')
 onkey(lambda: store('shape', square), 's')
 onkey(lambda: store('shape', circle), 'c')
