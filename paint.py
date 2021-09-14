@@ -11,6 +11,8 @@ Exercises
 """
 
 from turtle import *
+import turtle
+import math
 
 from freegames import vector
 
@@ -53,7 +55,6 @@ def circle(start, end):
             dot(start.y - end.y)
         else:
             dot(end.y - start.y)
-    pass #TODO 
 
 
 def rectangle(start, end):
