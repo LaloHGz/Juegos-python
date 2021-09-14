@@ -11,6 +11,8 @@ Exercises
 """
 
 from turtle import *
+import turtle
+import math
 
 from freegames import vector
 
@@ -39,12 +41,37 @@ def square(start, end):
 
 def circle(start, end):
     "Draw circle from start to end."
-    pass  # TODO
+    up()
+    goto(start.x, start.y)
+    down()
+
+    if(start.x - end.x > start.y - end.y or start.x - end.x > end.y - start.y  or end.x - start.x > end.y - start.y or end.x - start.x > start.y - end.y):
+        if(start.x > end.x):
+            dot(start.x - end.x)
+        else:
+            dot(end.x - start.x)
+    elif(start.x - end.x < start.y - end.y or start.x - end.x < end.y - start.y  or end.x - start.x < end.y - start.y or end.x - start.x < start.y - end.y):
+        if(start.y > end.y):
+            dot(start.y - end.y)
+        else:
+            dot(end.y - start.y)
+
 
 
 def rectangle(start, end):
     "Draw rectangle from start to end."
-    pass  # TODO
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+    for count in range(4):
+        if(count == 0 or count == 2):
+            forward(end.x - start.x)
+        else:
+            forward((end.x - start.x) - (end.x - start.x + 50))
+        left(90)
+    end_fill()
+
 
 
 def triangle(start, end):
