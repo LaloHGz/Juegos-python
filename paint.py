@@ -14,12 +14,12 @@ from turtle import *
 
 from freegames import vector
 
-%Agregar color 
+"""Agregar color"""
 bgcolor('lightblue')
 
 def line(start, end):
     "Draw line from start to end."
-    
+    chape('line')
     turtle.up(50)
     goto(start.x, start.y)
     down(60)
